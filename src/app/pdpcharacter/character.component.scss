@@ -1,0 +1,62 @@
+#character {
+    height: 100%;
+    #leftear {
+        height: 80%;
+        width: 15%;
+        background-color: white;
+        margin-left: 12.5%;
+        margin-top: 20%;
+        display: inline-block;
+    }
+    #head {
+        height: 60%;
+        width: 45%;
+        margin-top: 20%;
+        display: inline-block;
+        background-color: white;
+        position: relative;
+        #eyeleft {
+            width: 12px;
+            height: 20px;
+            border: solid 1px rgb(158, 154, 154);
+            border-top: solid 2px black;
+            position: absolute;
+            left: 10%;
+            top: 30%;
+            overflow: hidden;
+        }
+        #eyeright {
+            width: 12px;
+            height: 20px;
+            border: solid 1px rgb(158, 154, 154);
+            border-top: solid 2px black;
+            position: absolute;
+            right: 10%;
+            top: 30%;
+            overflow: hidden;
+        }
+        #eyebuble {
+            width: 90%;
+            height: 70%;
+            background-color: #02d495;
+            position: absolute;
+            border-radius: 50%;
+        }
+        #mouth {
+            width: 50%;
+            border-bottom: solid 2px;
+            height: 50%;
+            position: absolute;
+            left: 25%;
+            bottom: 20%;
+            border-radius: 10px; //change this to make him smile
+        }
+    }
+    #rightear {
+        height: 80%;
+        width: 15%;
+        margin-top: 20%;
+        display: inline-block;
+        background-color: white;
+    }
+}

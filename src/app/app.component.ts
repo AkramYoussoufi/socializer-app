@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MousepositionService } from './pdpcharacter/service/mouseposition.service';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'socializer-app';
+
+  constructor(private mousepositionService:MousepositionService){
+    
+  }
+
+
+  protected onMouseMove(event:MouseEvent){
+    this.mousepositionService.setMousePosition(event.clientX,event.clientY)
+    console.log("hi "+event.clientX+event.clientY);
+  }
+
 }
