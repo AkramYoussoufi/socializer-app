@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MousepositionService } from '../../service/mouseposition.service';
 import { Observable } from 'rxjs';
 
@@ -9,8 +9,9 @@ import { Observable } from 'rxjs';
 })
 export class CharacterComponent {
 
+  @Input() eyeHeigth: string = '20px';
 
-  constructor(public mousepositionService:MousepositionService){
+  constructor(public mousepositionService: MousepositionService) {
   }
 
 

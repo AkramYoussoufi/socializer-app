@@ -10,6 +10,7 @@ import { noSpaceValidator } from '../../utility/customValidator/customvalidators
 export class LoginComponent {
 
   public loginForm: FormGroup;
+  public eyeHeigth: string = '20px';
 
   constructor() {
     this.loginForm = new FormGroup({
@@ -25,5 +26,12 @@ export class LoginComponent {
     })
   }
 
-
+  closeEyes(): void {
+    if (this.eyeHeigth == "0px") {
+      this.eyeHeigth = "20px";
+    }
+    else {
+      this.eyeHeigth = "0px";
+    }
+  }
 }

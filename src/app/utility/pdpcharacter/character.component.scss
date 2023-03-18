@@ -1,5 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@500&display=swap");
+
 #character {
     height: 100%;
+    position: relative;
+    #bublecontainer {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        animation-name: movebuble;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        position: absolute;
+        z-index: 5;
+        #textbuble {
+            min-width: 500px;
+            min-height: 80px;
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+                rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            font-family: "Edu NSW ACT Foundation", cursive;
+        }
+
+        #bubledown {
+            width: 30px;
+            height: 10px;
+            margin-top: 10px;
+            background-color: White;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+                rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        }
+
+        #bubledowner {
+            width: 10px;
+            height: 10px;
+            margin-top: 10px;
+            background-color: White;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+                rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        }
+    }
     #leftear {
         height: 80%;
         width: 15%;
@@ -15,25 +60,31 @@
         display: inline-block;
         background-color: white;
         position: relative;
-        #eyeleft {
-            width: 12px;
-            height: 20px;
+        #eyewraperleft {
             border: solid 1px rgb(158, 154, 154);
             border-top: solid 2px black;
             position: absolute;
             left: 10%;
             top: 30%;
             overflow: hidden;
-        }
-        #eyeright {
-            width: 12px;
+            transition: all 0.4s;
+            display: inline-flex;
             height: 20px;
+            width: 12px;
+            transition: all 0.4s;
+        }
+        #eyewraperright {
             border: solid 1px rgb(158, 154, 154);
             border-top: solid 2px black;
             position: absolute;
             right: 10%;
             top: 30%;
             overflow: hidden;
+            transition: all 0.4s;
+            display: inline-flex;
+            height: 20px;
+            width: 12px;
+            transition: all 0.4s;
         }
         #eyebuble {
             width: 90%;
@@ -58,5 +109,17 @@
         margin-top: 20%;
         display: inline-block;
         background-color: white;
+    }
+}
+
+@keyframes movebuble {
+    0% {
+        transform: translate(22%, -20%);
+    }
+    50% {
+        transform: translate(22%, -15%);
+    }
+    100% {
+        transform: translate(22%, -20%);
     }
 }

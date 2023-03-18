@@ -10,6 +10,8 @@ import { noSpaceValidator, usernameValidator } from 'src/app/utility/customValid
 export class SignupComponent {
 
   public signupForm: FormGroup;
+  public eyeHeigth: string = '20px';
+
 
   constructor() {
     this.signupForm = new FormGroup({
@@ -49,5 +51,15 @@ export class SignupComponent {
       ]),
     })
   }
+
+  closeEyes(): void {
+    if (this.eyeHeigth == "0px") {
+      this.eyeHeigth = "20px";
+    }
+    else {
+      this.eyeHeigth = "0px";
+    }
+  }
+
 
 }

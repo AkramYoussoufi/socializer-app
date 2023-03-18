@@ -1,15 +1,30 @@
 <div id="character">
+    <div id="bublecontainer">
+        <div id="textbuble">
+            <div>Hello and welcome</div>
+        </div>
+        <div id="bubledown"></div>
+        <div id="bubledowner"></div>
+    </div>
     <div id="leftear">
 
     </div>
     <div id="head">
-<div id="eyeleft">
-    <div id="eyebuble" [ngStyle]="{'transform': 'translate(' + mousepositionService.getMousePositionX() + '%, ' + mousepositionService.getMousePositionY() + '%)'}"></div>
-</div>
-<div id="eyeright">
-    <div id="eyebuble" [ngStyle]="{'transform': 'translate(' + mousepositionService.getMousePositionX() + '%, ' + mousepositionService.getMousePositionY() + '%)'}"></div>
-</div>
-<div id="mouth"></div>
+        <div id="eyewraperleft" [ngStyle]="{'height':eyeHeigth}">
+            <div id="eye">
+                <div id="eyebuble"
+                    [ngStyle]="{'transform': 'translate(' + mousepositionService.getMousePositionX() + '%, ' + mousepositionService.getMousePositionY() + '%)'}">
+                </div>
+            </div>
+        </div>
+        <div id="eyewraperright" [ngStyle]="{'height':eyeHeigth}">
+            <div id="eye">
+                <div id="eyebuble"
+                    [ngStyle]="{'transform': 'translate(' + mousepositionService.getMousePositionX() + '%, ' + mousepositionService.getMousePositionY() + '%)'}">
+                </div>
+            </div>
+        </div>
+        <div id="mouth"></div>
     </div>
     <div id="rightear">
 
