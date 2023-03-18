@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MousepositionService } from './pdpcharacter/service/mouseposition.service';
+import { MousepositionService } from './service/mouseposition.service';
 
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MousepositionService } from './service/mouseposition.service';
+import { MousepositionService } from '../../service/mouseposition.service';
 import { Observable } from 'rxjs';
 
 @Component({

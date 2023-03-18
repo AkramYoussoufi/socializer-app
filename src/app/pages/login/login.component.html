@@ -14,28 +14,28 @@
           <app-character></app-character >
         </div>
         <div id="title-form">Login</div>
-        <form class="pt-3">
+        <form [formGroup]="loginForm" class="pt-3">
           <div
             class="inputcontainer"
-            [ngClass]="{ 'inputHasText': userCredintiels.userEmail.length > 0 }"
+            [ngClass]="{ 'inputHasText': loginForm.controls['email'].value.length > 0 }"
           >
             <img src="../../assets/login-form/email-icon-form.png" alt="" />
             <label for="email">Email</label>
             <input
               type="email"
               name="email"
-              [(ngModel)]="userCredintiels.userEmail"
+              formControlName="email"
             />
           </div>
           <div class="inputcontainer"
-          [ngClass]="{ 'inputHasText': userCredintiels.userPassword.length > 0 }"
+          [ngClass]="{ 'inputHasText': loginForm.controls['password'].value.length > 0 }"
           >
             <img src="../../assets/login-form/password-icon-form.png" alt="" />
             <label for="password">Password</label>
             <input
               type="password"
               name="password"
-              [(ngModel)]="userCredintiels.userPassword"
+              formControlName="password"
             />
           </div>
           <div id="submit-btn"><input class="mt-3" type="submit" /></div>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { noSpaceValidator, usernameValidator } from 'src/app/utility/customValidator/customvalidators';
 
 @Component({
   selector: 'app-signup',
@@ -7,12 +9,45 @@ import { Component } from '@angular/core';
 })
 export class SignupComponent {
 
-  protected userCredintiels: { firstName: '', lastName:'', userName:'', userEmail: String; userPassword: String } = {
-    firstName: '',
-    lastName: '',
-    userName: '',
-    userEmail: '',
-    userPassword: '',
-  };
+  public signupForm: FormGroup;
+
+  constructor() {
+    this.signupForm = new FormGroup({
+      firstname: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(24),
+        noSpaceValidator
+      ]),
+      lastname: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(24),
+        noSpaceValidator
+      ]),
+      username: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(24),
+        noSpaceValidator,
+        usernameValidator
+      ]),
+      email: new FormControl('', [
+        Validators.required,
+        Validators.email,
+        Validators.minLength(2),
+        Validators.maxLength(24),
+        noSpaceValidator
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8)
+      ]),
+      repassword: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8)
+      ]),
+    })
+  }
 
 }
