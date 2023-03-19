@@ -1,10 +1,10 @@
 <div id="character">
     <div id="bublecontainer">
-        <div id="textbuble">
-            <div>Hello and welcome</div>
+        <div [ngStyle]="{'background-color':messagecolor}" id="textbuble">
+            <div [ngStyle]="{'color':this.messagecolor == 'white' ? 'black' : 'white'}">{{message}}</div>
         </div>
-        <div id="bubledown"></div>
-        <div id="bubledowner"></div>
+        <div [ngStyle]="{'background-color':messagecolor}" id="bubledown"></div>
+        <div [ngStyle]="{'background-color':messagecolor}" id="bubledowner"></div>
     </div>
     <div id="leftear">
 
@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <div id="mouth"></div>
+        <div id="mouth" [ngStyle]="{'border-radius':smileRadius+'%'}"></div>
     </div>
     <div id="rightear">
 

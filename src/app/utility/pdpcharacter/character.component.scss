@@ -71,7 +71,7 @@
             display: inline-flex;
             height: 20px;
             width: 12px;
-            transition: all 0.4s;
+            transition: all 0.2s;
         }
         #eyewraperright {
             border: solid 1px rgb(158, 154, 154);
@@ -84,7 +84,7 @@
             display: inline-flex;
             height: 20px;
             width: 12px;
-            transition: all 0.4s;
+            transition: all 0.2s;
         }
         #eyebuble {
             width: 90%;
@@ -100,7 +100,7 @@
             position: absolute;
             left: 25%;
             bottom: 20%;
-            border-radius: 40%; //change this to make him smile
+            transition: all 1s;
         }
     }
     #rightear {

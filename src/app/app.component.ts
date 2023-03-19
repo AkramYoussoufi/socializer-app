@@ -9,14 +9,13 @@ import { MousepositionService } from './service/mouseposition.service';
 })
 export class AppComponent {
 
-  constructor(private mousepositionService:MousepositionService){
-    
+  constructor(private mousepositionService: MousepositionService) {
+
   }
 
 
-  protected onMouseMove(event:MouseEvent){
-    this.mousepositionService.setMousePosition(event.clientX,event.clientY)
-    console.log("hi "+event.clientX+event.clientY);
+  protected onMouseMove(event: MouseEvent) {
+    this.mousepositionService.setMousePosition(event.clientX, event.clientY)
   }
 
 }

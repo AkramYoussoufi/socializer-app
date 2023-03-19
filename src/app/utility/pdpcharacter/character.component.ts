@@ -9,7 +9,12 @@ import { Observable } from 'rxjs';
 })
 export class CharacterComponent {
 
-  @Input() eyeHeigth: string = '20px';
+  @Input() eyeHeigth: string = '';
+  @Input() smileRadius: number = 0;
+  @Input() message: string = '';
+  @Input() messagecolor: string = 'white';
+
+
 
   constructor(public mousepositionService: MousepositionService) {
   }

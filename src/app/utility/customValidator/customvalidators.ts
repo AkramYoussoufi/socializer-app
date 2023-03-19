@@ -1,4 +1,4 @@
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, AbstractControl } from '@angular/forms';
 
 
 export function noSpaceValidator(control: FormControl): { [key: string]: boolean } | null {
@@ -15,4 +15,9 @@ export function noSpaceValidator(control: FormControl): { [key: string]: boolean
 export function usernameValidator(control: FormControl): { [key: string]: boolean } | null {
 	const hasSpace: boolean = /^[a-zA-Z]+([ ]?[a-zA-Z]+)?$/.test(control.value);
 	return hasSpace ? null : { 'Username you typed is invalid please make sure to use one space between two names': true };
+};
+
+export function matchingPassword(control: AbstractControl): { [key: string]: boolean } | null {
+	const samePassword: boolean = control.get('password')?.value === control.get('repassword')?.value;
+	return samePassword ? null : { 'Not the same password': true };
 };

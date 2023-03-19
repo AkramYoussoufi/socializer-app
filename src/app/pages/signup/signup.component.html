@@ -8,42 +8,43 @@
     <div class="row d-flex justify-content-center align-items-center h-100 position-relative">
       <div class="col-6 p-4 d-flex justify-content-center flex-column align-items-center h-80  mt-3">
         <div id="pdp-form">
-          <app-character [eyeHeigth]="eyeHeigth"></app-character>
+          <app-character [messagecolor]="messagecolor" [message]="message" [smileRadius]="smileRadius"
+            [eyeHeigth]="eyeHeigth"></app-character>
         </div>
         <div id="title-form">Signup</div>
-        <form class="mt-1">
+        <form class="mt-1" [formGroup]="signupForm">
           <div class="inputcontainer" [ngClass]="{ 'inputHasText': signupForm.controls['firstname'].value.length > 0 }">
             <img src="../../assets/login-form/user-icon-form.png" alt="" />
             <label for="firstname">First Name</label>
-            <input type="text" name="firstname" formControlName="firstname" />
+            <input type="text" name="firstname" (blur)="isInputsValid($event)" formControlName="firstname" />
           </div>
           <div class="inputcontainer" [ngClass]="{ 'inputHasText': signupForm.controls['lastname'].value.length > 0 }">
             <img src="../../assets/login-form/user-icon-form.png" alt="" />
             <label for="lastname">Last Name</label>
-            <input type="text" name="lastname" formControlName="lastname" />
+            <input type="text" name="lastname" (blur)="isInputsValid($event)" formControlName="lastname" />
           </div>
           <div class="inputcontainer" [ngClass]="{ 'inputHasText': signupForm.controls['username'].value.length > 0 }">
             <img src="../../assets/login-form/user-icon-form.png" alt="" />
             <label for="username">Username<i>(Displayed Name)</i></label>
-            <input type="text" name="username" formControlName="username" />
+            <input type="text" name="username" (blur)="isInputsValid($event)" formControlName="username" />
           </div>
           <div class="inputcontainer" [ngClass]="{ 'inputHasText': signupForm.controls['email'].value.length > 0 }">
             <img src="../../assets/login-form/email-icon-form.png" alt="" />
             <label for="email">Email</label>
-            <input type="email" name="email" formControlName="email" />
+            <input type="email" name="email" (blur)="isInputsValid($event)" formControlName="email" />
           </div>
           <div class="inputcontainer" [ngClass]="{ 'inputHasText': signupForm.controls['password'].value.length > 0 }">
             <img src="../../assets/login-form/password-icon-form.png" alt="" />
             <label for="password">Password</label>
-            <input type="password" name="password" formControlName="password" (focus)='closeEyes()'
-              (blur)="closeEyes()" />
+            <input type="password" name="password" (blur)="isInputsValid($event)" formControlName="password"
+              (focus)='closeEyes()' (blur)="closeEyes()" />
           </div>
           <div class="inputcontainer"
             [ngClass]="{ 'inputHasText': signupForm.controls['repassword'].value.length > 0 }">
             <img src="../../assets/login-form/password-icon-form.png" alt="" />
             <label for="repassword">Confirm Password</label>
-            <input type="password" name="repassword" formControlName="repassword" (focus)='closeEyes()'
-              (blur)="closeEyes()" />
+            <input type="password" name="repassword" (blur)="isInputsValid($event)" formControlName="repassword"
+              (focus)='closeEyes()' (blur)="closeEyes()" />
           </div>
           <div id="submit-btn"><input class="mt-3" type="submit" /></div>
         </form>
