@@ -71,7 +71,9 @@ export class SignupComponent {
   public isInputsValid(event: any) {
     const fieldName: string = event.target.name;
     const control = this.signupForm.get(fieldName);
-    this.memoryOfValidInputs.set(fieldName, control?.valid ? false : true)
+    if (!this.memoryOfValidInputs.has(fieldName)) {
+      this.memoryOfValidInputs.set(fieldName, control?.valid ? false : true)
+    }
     if (control?.valid && !this.memoryOfValidInputs.get(fieldName)) {
       if (this.smileRadius <= 40) {
         this.smileRadius = this.smileRadius + 6.7;
@@ -110,7 +112,7 @@ export class SignupComponent {
         }
       }
     } else if (!control?.valid && this.memoryOfValidInputs.get(fieldName)) {
-      if (this.smileRadius > 0) {
+      if (this.smileRadius >= 0) {
         this.smileRadius = this.smileRadius - 6.7;
         this.memoryOfValidInputs.set(fieldName, false)
       }

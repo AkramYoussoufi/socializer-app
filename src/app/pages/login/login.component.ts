@@ -43,22 +43,24 @@ export class LoginComponent {
   public isInputsValid(event: any) {
     const fieldName: string = event.target.name;
     const control = this.loginForm.get(fieldName);
-    this.memoryOfValidInputs.set(fieldName, control?.valid ? false : true)
+    if (!this.memoryOfValidInputs.has(fieldName)) {
+      this.memoryOfValidInputs.set(fieldName, control?.valid ? false : true)
+    }
     if (control?.valid && !this.memoryOfValidInputs.get(fieldName)) {
-      if (this.smileRadius < 40) {
+      if (this.smileRadius <= 40) {
         this.smileRadius = this.smileRadius + 20;
         this.memoryOfValidInputs.set(fieldName, true)
-        switch (fieldName) {
-          case 'email': {
-            this.message = "Let's Go";
-            this.messagecolor = 'lightgreen';
-            break;
-          }
-          case 'password': {
-            this.message = "I swear i didn't saw anything !";
-            this.messagecolor = 'lightgreen';
-            break;
-          }
+      }
+      switch (fieldName) {
+        case 'email': {
+          this.message = "Let's Go";
+          this.messagecolor = 'lightgreen';
+          break;
+        }
+        case 'password': {
+          this.message = "I swear i didn't saw anything !";
+          this.messagecolor = 'lightgreen';
+          break;
         }
       }
     } else if (!control?.valid && this.memoryOfValidInputs.get(fieldName)) {
