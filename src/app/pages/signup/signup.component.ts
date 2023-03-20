@@ -75,7 +75,7 @@ export class SignupComponent {
       this.memoryOfValidInputs.set(fieldName, control?.valid ? false : true)
     }
     if (control?.valid && !this.memoryOfValidInputs.get(fieldName)) {
-      if (this.smileRadius <= 40) {
+      if (this.smileRadius < 40) {
         this.smileRadius = this.smileRadius + 6.7;
         this.memoryOfValidInputs.set(fieldName, true)
       }
