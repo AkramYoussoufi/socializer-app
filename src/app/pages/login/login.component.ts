@@ -50,17 +50,17 @@ export class LoginComponent {
       if (this.smileRadius <= 40) {
         this.smileRadius = this.smileRadius + 20;
         this.memoryOfValidInputs.set(fieldName, true)
-        switch (fieldName) {
-          case 'email': {
-            this.message = "Let's Go";
-            this.messagecolor = 'lightgreen';
-            break;
-          }
-          case 'password': {
-            this.message = "I swear i didn't saw anything !";
-            this.messagecolor = 'lightgreen';
-            break;
-          }
+      }
+      switch (fieldName) {
+        case 'email': {
+          this.message = "Let's Go";
+          this.messagecolor = 'rgb(2,212,149)';
+          break;
+        }
+        case 'password': {
+          this.message = "I swear i didn't saw anything !";
+          this.messagecolor = 'rgb(2,212,149)';
+          break;
         }
       }
     } else if (!control?.valid && this.memoryOfValidInputs.get(fieldName)) {

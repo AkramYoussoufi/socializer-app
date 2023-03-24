@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { HttpRequestService } from 'src/app/service/http-request.service';
 import { noSpaceValidator, usernameValidator, matchingPassword } from 'src/app/utility/customValidator/customvalidators';
 
 @Component({
@@ -14,11 +15,11 @@ export class SignupComponent {
   public smileRadius: number = 0;
   public message: string = "Welcome I'm pleased to hear that you gonna join us";
   public memoryOfValidInputs: Map<string, boolean> = new Map<string, boolean>();
-  messagecolor: string = 'white';
+  public messagecolor: string = 'white';
 
 
 
-  constructor() {
+  constructor(public httpRequestService: HttpRequestService) {
     this.signupForm = new FormGroup({
       firstname: new FormControl('', [
         Validators.required,
@@ -42,8 +43,6 @@ export class SignupComponent {
       email: new FormControl('', [
         Validators.required,
         Validators.email,
-        Validators.minLength(2),
-        Validators.maxLength(24),
         noSpaceValidator
       ]),
       password: new FormControl('', [
@@ -52,12 +51,34 @@ export class SignupComponent {
       ]),
       repassword: new FormControl('', [
         Validators.required,
-        Validators.minLength(8)
+        Validators.minLength(8),
+        matchingPassword
       ]),
     }, {
       validators: matchingPassword
     })
   }
+
+  //SERVICES WITH BACKEND
+
+  onSubmit(event: any) {
+    this.isInputsValid(event);
+    if (this.signupForm.valid) {
+      const json = {
+        "pseudo": this.signupForm.controls['username'].value,
+        "firstName": this.signupForm.controls['firstname'].value,
+        "lastName": this.signupForm.controls['lastname'].value,
+        "email": this.signupForm.controls['email'].value,
+        "password": this.signupForm.controls['password'].value,
+        "birthDay": "2000-01-01"//U NEED TO DYNAMICLY SET THIS TOO
+      };
+      this.httpRequestService.sendPostRequest('public/auth/signup', json).subscribe();
+    }
+  }
+
+
+
+  //DESIGN CHANGES
 
   closeEyes(): void {
     if (this.eyeHeigth == "0px") {
@@ -82,32 +103,32 @@ export class SignupComponent {
       switch (fieldName) {
         case 'firstname': {
           this.message = "Nice to meet you " + this.signupForm.get(fieldName)?.value;
-          this.messagecolor = 'lightgreen';
+          this.messagecolor = 'rgb(2,212,149)';
           break;
         }
         case 'lastname': {
           this.message = "Don't worry I will remember it " + this.signupForm.get(fieldName)?.value;
-          this.messagecolor = 'lightgreen';
+          this.messagecolor = 'rgb(2,212,149)';
           break;
         }
         case 'username': {
           this.message = "I like it";
-          this.messagecolor = 'lightgreen';
+          this.messagecolor = 'rgb(2,212,149)';
           break;
         }
         case 'email': {
           this.message = "It's safe in my Database don't worry";
-          this.messagecolor = 'lightgreen';
+          this.messagecolor = 'rgb(2,212,149)';
           break;
         }
         case 'password': {
           this.message = "I swear I didn't saw anything";
-          this.messagecolor = 'lightgreen';
+          this.messagecolor = 'rgb(2,212,149)';
           break;
         }
         case 'repassword': {
           this.message = "I swear I didn't saw anything";
-          this.messagecolor = 'lightgreen';
+          this.messagecolor = 'rgb(2,212,149)';
           break;
         }
       }
