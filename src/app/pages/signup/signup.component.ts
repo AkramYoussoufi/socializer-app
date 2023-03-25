@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpRequestService } from 'src/app/service/http-request.service';
 import { noSpaceValidator, usernameValidator, matchingPassword } from 'src/app/utility/customValidator/customvalidators';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-signup',
@@ -16,10 +17,11 @@ export class SignupComponent {
   public message: string = "Welcome I'm pleased to hear that you gonna join us";
   public memoryOfValidInputs: Map<string, boolean> = new Map<string, boolean>();
   public messagecolor: string = 'white';
+  public isRequestInCharge:boolean = false;
 
 
 
-  constructor(public httpRequestService: HttpRequestService) {
+  constructor(private httpRequestService: HttpRequestService) {
     this.signupForm = new FormGroup({
       firstname: new FormControl('', [
         Validators.required,
@@ -62,6 +64,7 @@ export class SignupComponent {
   //SERVICES WITH BACKEND
 
   onSubmit(event: any) {
+    this.isRequestInCharge = true;
     this.isInputsValid(event);
     if (this.signupForm.valid) {
       const json = {
@@ -72,8 +75,32 @@ export class SignupComponent {
         "password": this.signupForm.controls['password'].value,
         "birthDay": "2000-01-01"//U NEED TO DYNAMICLY SET THIS TOO
       };
-      this.httpRequestService.sendPostRequest('public/auth/signup', json).subscribe();
+
+      this.httpRequestService.sendPostRequest('public/auth/signup', json, '').pipe(
+        finalize(() => {
+          this.isRequestInCharge = false;
+        })
+      ).subscribe(
+        data=>{
+          
+        },
+        error=>{
+          this.message = error.error.error;
+          this.messagecolor = 'red';
+        }
+        )
     }
+  }
+
+  sendEmail(){
+    const json = {
+      "email": this.signupForm.controls['email'].value
+    }
+
+    this.httpRequestService.sendPostRequest('public/auth/signup', json, '').subscribe(
+      data=>console.log(data),
+      error=>console.log(error)
+      )
   }
 
 
