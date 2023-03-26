@@ -1,0 +1,14 @@
+<div id="verifpanelcontainer">
+    <div id="messagebox">
+      <div id="closebutton">X</div>
+      <div id="title">Verify Your Email</div>
+      <div id="info">{{message}}</div>
+      <div id="inputcontainer">
+        <input #inputPin *ngFor="let i of [1, 2, 3, 4]" [ngStyle]="borerStyle[i]" [(ngModel)]="pin[i]" (input)="handleInput($event,i)" type="text" maxlength="1" name="pin">
+      </div>
+      <div id="buttonContainer">
+        <button>Verify</button>
+    </div>
+      <div id="footerpanelverif">Re-Send Pin</div>
+    </div>
+  </div>
