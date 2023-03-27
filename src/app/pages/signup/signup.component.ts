@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpRequestService } from 'src/app/service/http-request.service';
 import { noSpaceValidator, usernameValidator, matchingPassword } from 'src/app/utility/customValidator/customvalidators';
@@ -18,8 +18,8 @@ export class SignupComponent {
   public memoryOfValidInputs: Map<string, boolean> = new Map<string, boolean>();
   public messagecolor: string = 'white';
   public isRequestInCharge:boolean = false;
-
-
+  public sendedIsClosed:boolean = false;
+  public verifMessage:string = "We sent you an email to your adresse so you can verify your email adresse";
 
   constructor(private httpRequestService: HttpRequestService) {
     this.signupForm = new FormGroup({
@@ -63,6 +63,10 @@ export class SignupComponent {
 
   //SERVICES WITH BACKEND
 
+  handleData(event:boolean){
+    this.sendedIsClosed = event;
+  }
+
   onSubmit(event: any) {
     this.isRequestInCharge = true;
     this.isInputsValid(event);
@@ -82,7 +86,10 @@ export class SignupComponent {
         })
       ).subscribe(
         data=>{
-          
+          this.message = data.message;
+          this.messagecolor = '#02D495';
+          this.sendedIsClosed = true;//localhost:8080/api/v1/
+          this.httpRequestService.sendPostRequest('public/send/mail/verification', {'email':this.signupForm.controls['email'].value}, '').subscribe(data=>console.log(data))
         },
         error=>{
           this.message = error.error.error;

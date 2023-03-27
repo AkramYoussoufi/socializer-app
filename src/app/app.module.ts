@@ -10,9 +10,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { CharacterComponent } from './components/pdpcharacter/character.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { VerifyemailComponent } from './components/verifyemail/verifyemail.component';
+import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, CharacterComponent, SignupComponent, VerifyemailComponent],
+  declarations: [AppComponent, LoginComponent, CharacterComponent, SignupComponent, VerifyemailComponent, ChangepasswordComponent],
   imports: [BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

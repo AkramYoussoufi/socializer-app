@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { noSpaceValidator } from '../../utility/customValidator/customvalidators'
+import { noSpaceValidator } from '../../utility/customValidator/customvalidators';
+import { HttpRequestService } from 'src/app/service/http-request.service';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +17,13 @@ export class LoginComponent {
   public message: string = 'Hello and welcome';
   public messagecolor: string = 'white';
   public memoryOfValidInputs: Map<string, boolean> = new Map<string, boolean>();
+  public isRequestInCharge:boolean = false;
+  public sendedIsClosed:boolean = false;
+  public passwordRecIsClosed:boolean = false;
+  public verifMessage:string = "We sent you an email to your adresse so you can verify your email adresse";
+  public passwordChangeMessage:string = "Insert your email here, we gonna send you an email to change your password in it";
 
-  constructor() {
+  constructor(private httpRequestService: HttpRequestService) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [
         Validators.required,
@@ -80,6 +87,51 @@ export class LoginComponent {
           break;
         }
       }
+    }
+  }
+
+  handleData(event:boolean){
+    this.sendedIsClosed = event;
+  }
+
+  handleDataRec(event:boolean){
+    this.passwordRecIsClosed = event;
+  }
+
+  openRecovery(){
+    this.passwordRecIsClosed = this.passwordRecIsClosed ? false : true
+  }
+
+  onSubmit(event: any) {
+    this.isRequestInCharge = true;
+    this.isInputsValid(event);
+    if (this.loginForm.valid) {
+      const json = {
+        "email": this.loginForm.controls['email'].value,
+        "password": this.loginForm.controls['password'].value,
+      };
+
+      this.httpRequestService.sendPostRequest('public/auth/login', json, '').pipe(
+        finalize(() => {
+          this.isRequestInCharge = false;
+        })
+      ).subscribe(
+        data=>{
+          this.message = "You are logged in Enjoy !";
+          console.log(data)
+          this.messagecolor = '#02D495';
+        },
+        error=>{
+          console.log(error);
+          if(error.error.error == 'User is disabled'){
+            this.message = 'Your account is not verified please verify your email !'
+            this.sendedIsClosed = true;
+          }else{
+            this.message = error.error.error;
+          }
+          this.messagecolor = 'red';
+        }
+      )
     }
   }
 }
