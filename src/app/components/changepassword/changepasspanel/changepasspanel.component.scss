@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+input[type=number]::-webkit-inner-spin-button, 
+            input[type=number]::-webkit-outer-spin-button { 
+              -webkit-appearance: none;
+              -moz-appearance: none;
+             appearance: none;
+             margin: 0; 
+            }
+
+            #requestloading{
+                border: solid 2px rgb(0, 255, 225);
+                border-radius: 50%;
+                width: 20px;
+                border-left: solid 2px white;
+                padding: 10px;
+                animation-name: loadinganimation;
+                animation-duration: 1s;
+                animation-iteration-count: infinite;
+                transition: all;
+            }
+
+            @keyframes loadinganimation {
+                0% {transform: rotate(0deg);}
+                100% {transform: rotate(360deg);}
+            }
+
+#verifpanelcontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    font-family: 'ubuntu';
+    #messagebox{
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 50px 80px 50px 80px;
+        gap: 20px;
+        position: relative;
+        #lockicon{
+            position: absolute;
+            transform: translateX(0%);
+            top: -40px;
+            cursor: pointer;
+            width: 80px;
+            height: 80px;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        #title{
+            font-size: 2em;
+            font-weight: 900;
+            color: black;
+        }
+        #info{
+            padding: 10px;
+            background-color: #DB6D04;
+            color: white;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #inputcontainer{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
+            input{
+                width: 350px;
+                height: 50px;
+                outline: none;
+                appearance: none;
+                margin: 0; 
+                padding-left: 20px;
+                font-size: 1.1em;
+                font-weight: 900;
+                background-color: rgb(230, 233, 236);
+                border: none;
+            }
+            label{
+                font-weight: 600;
+            }
+        }
+        #buttonContainer{
+            button{
+                outline: none;
+                border: none;
+                background-color: #F39C12;
+                color: white;
+                font-weight: 600;
+                width: 200px;
+                height: 40px;
+                border-radius: 30px;
+                &:hover {
+                    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+                }
+                &:active {
+                    background-color: white;
+                    color: #F39C12;
+                    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+                }
+            }
+        }
+    }
+  }

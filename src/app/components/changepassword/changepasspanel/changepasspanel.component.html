@@ -1,0 +1,22 @@
+<div class="container-fluid d-flex align-items-center justify-content-center" style="height: 100vh;">
+    <div class="row w-100 d-flex align-items-center justify-content-center">
+        <div class="col-5 d-flex align-items-center justify-content-center flex-column">
+            <div id="verifpanelcontainer">
+                <div id="messagebox">
+                  <div id="title">Password Recovery</div>
+                  <div id="lockicon"><img src="../../../../assets/login-form/lockicon.png" alt=""></div>
+                  <div id="info" [ngStyle]="{'background-color':messageColor}" >{{message}}<div *ngIf="isCharged" id="requestloading"></div></div>
+                  <div id="inputcontainer">
+                    <label for="password" class="">New Password</label>
+                    <input [(ngModel)]="passowrd"  type="password" name="password"/>
+                  </div>
+                  <div id="inputcontainer">
+                    <label for="confirmPassword" class="">Retype Your New Password</label>
+                    <input [(ngModel)]="repassword" type="password" name="confirmPassword"/>
+                  </div>
+                  <div id="buttonContainer">
+                    <button (click)="onSubmit()">Change Password</button>
+              </div>
+        </div>
+    </div>
+</div>
