@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './module/approuting.module';
+import { PlatformModule } from './pages/platform/module/platform.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -16,7 +17,7 @@ import { ChangepasswordModule } from './components/changepassword/changepasspane
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, CharacterComponent, SignupComponent, VerifyemailComponent, ChangepasswordComponent],
-  imports: [BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule,ChangepasswordModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule,ChangepasswordModule, PlatformModule],
   providers: [],
   bootstrap: [AppComponent],
 })
