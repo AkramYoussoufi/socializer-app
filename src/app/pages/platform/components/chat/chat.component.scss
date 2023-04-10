@@ -1,0 +1,128 @@
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+.firstbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    border: solid  1px  #DDDDDD;
+    border-right: none;
+    .friendpdp{
+        margin-left: 20px;
+        width: 80px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    div{
+       width: 50px;
+       height: 50px;
+       border: solid 1px black;
+       border-radius: 50%;
+       }
+    }
+    .friendname{
+        display: flex;
+        align-items: center;
+        width: 80%;
+        height: 100%;
+        padding-left: 20px;
+        font-weight: 300;
+        font-size: 1.2em;
+        pointer-events: none;
+    }
+    .dropbox{
+        width: 10%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        cursor: pointer;
+        .dropbtn {
+            border: none;
+            background-color: transparent;
+            img{
+                width: 20px;
+                height: 20px;
+            }
+        }
+        &:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            top: 80%;
+
+            div {
+                color: red;
+                background-color: white;
+                display: block;
+                white-space: nowrap;
+                padding:10px;
+                border:solid 1px #DDDDDD;
+                cursor:pointer;
+                font-weight: 600;
+                text-align: center;
+              }
+          }
+    }
+}
+.chat{
+    height: 95%;
+    border: solid  1px  #DDDDDD;
+    .chatfield{
+        padding: 50px;
+        height: 90%;
+        overflow: scroll;
+    }
+    .messagesender{
+        height: 8%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        div{
+            width: 90%;
+            height: 70%;
+            border-radius: 60px;
+            display: flex;
+            flex-direction: row;
+            border: solid  1px  #02B37E;
+            input{
+                padding-left: 50px;
+                width: 85%;
+                height: 100%;
+                border-radius: 60px;
+                outline: none;
+                border: none;
+                font-size: 1.1em;
+
+            }
+            .buttons{
+                width: 15%;
+                height: 100%;
+                background-color: #02B37E;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+                button{
+                    display: block;
+                    width: 50px;
+                    height: 50px;
+                    background-color: transparent;
+                    padding: 5px;
+                    border: none;
+                    img{
+                        height: 60%;
+                    }
+                }
+            }
+        }
+    }
+}

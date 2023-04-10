@@ -6,12 +6,14 @@ import { SidebaruserComponent } from '../components/sidebaruser/sidebaruser.comp
 import { ChatComponent } from '../components/chat/chat.component';
 import { SidebarfriendsComponent } from '../components/sidebarfriends/sidebarfriends.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MymessageComponent } from '../components/chat/mymessage/mymessage.component';
+import { HismessageComponent } from '../components/chat/hismessage/hismessage.component';
 
 
 
 
 @NgModule({
-  declarations: [PlatformComponent, SidebaruserComponent, ChatComponent, SidebarfriendsComponent],
+  declarations: [PlatformComponent, SidebaruserComponent, ChatComponent, SidebarfriendsComponent,MymessageComponent, HismessageComponent],
   imports: [
     CommonModule,
     PlatformrouteModule,

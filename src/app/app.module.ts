@@ -12,8 +12,8 @@ import { CharacterComponent } from './components/pdpcharacter/character.componen
 import { SignupComponent } from './pages/signup/signup.component';
 import { VerifyemailComponent } from './components/verifyemail/verifyemail.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
-import { ChangepasspanelComponent } from './components/changepassword/changepasspanel/changepasspanel.component';
 import { ChangepasswordModule } from './components/changepassword/changepasspanel/module/changepassword-route.module';
+
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, CharacterComponent, SignupComponent, VerifyemailComponent, ChangepasswordComponent],

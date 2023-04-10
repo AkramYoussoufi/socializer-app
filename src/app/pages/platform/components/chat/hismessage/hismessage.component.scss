@@ -1,0 +1,27 @@
+
+#container{
+    display: flex;
+    align-items: start;
+    justify-content: start;
+
+    #messagecontainer{
+        border-radius:20px;
+        padding:15px;
+        max-width:80%;
+        position:relative;
+        background-color:rgb(68, 0, 255);
+        color:white;
+        &::after{
+                content:"";
+                position:absolute;
+                left:-20px;
+                bottom: 16px;
+                background-color:transparent;
+                z-index:5;
+                border-bottom:solid 15px rgb(68, 0, 255);
+                border-left:solid 20px transparent;
+                border-right:solid 0px green;
+                border-top:solid 0px pink;
+        }
+      }
+}
