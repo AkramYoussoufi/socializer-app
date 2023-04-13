@@ -1,25 +1,24 @@
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: end;
 
-#container{
-    display: flex;
-    align-items: center;
-    justify-content: end;
-
-    #messagecontainer{
-        border-radius:20px;
-        padding:15px;
-        max-width:80%;
-        position:relative;
-        background-color:red;
-        color:white;
-        &::after{
-                content:"";
-                position:absolute;
-                right:-20px;
-                background-color:transparent;
-                border-bottom:solid 15px transparent;
-                border-left:solid 20px red;
-                border-right:solid 0px green;
-                border-top:solid 0px pink;
-        }
-      }
+  #messagecontainer {
+    border-radius: 20px;
+    padding: 15px;
+    max-width: 80%;
+    position: relative;
+    background-color: #f3f3f5;
+    color: black;
+    &::after {
+      content: "";
+      position: absolute;
+      right: -20px;
+      background-color: transparent;
+      border-bottom: solid 15px transparent;
+      border-left: solid 20px #f3f3f5;
+      border-right: solid 0px green;
+      border-top: solid 0px pink;
+    }
+  }
 }

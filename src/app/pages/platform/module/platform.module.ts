@@ -8,12 +8,13 @@ import { SidebarfriendsComponent } from '../components/sidebarfriends/sidebarfri
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MymessageComponent } from '../components/chat/mymessage/mymessage.component';
 import { HismessageComponent } from '../components/chat/hismessage/hismessage.component';
+import { PendignrequestComponent } from '../components/sidebaruser/pendignrequest/pendignrequest.component';
 
 
 
 
 @NgModule({
-  declarations: [PlatformComponent, SidebaruserComponent, ChatComponent, SidebarfriendsComponent,MymessageComponent, HismessageComponent],
+  declarations: [PlatformComponent, SidebaruserComponent, ChatComponent, SidebarfriendsComponent, MymessageComponent, HismessageComponent, PendignrequestComponent],
   imports: [
     CommonModule,
     PlatformrouteModule,

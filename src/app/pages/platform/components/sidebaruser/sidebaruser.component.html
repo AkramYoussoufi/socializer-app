@@ -1,5 +1,44 @@
+<app-pendignrequest style="
+    position: absolute;
+    display: flex;align-items: center;
+    justify-content: center;
+    height: 100vh;width: 100vmax;
+    background-color: rgba(0, 0, 0, 0.418); 
+    z-index: 10;">
+</app-pendignrequest>
 <div class="pdpcontainer">
     <div class="pdp"></div>
 </div>
-<div class="searchbar"></div>
-<div class="conversations"></div>
+<div class="searchbar">
+    <div style="position: relative;width: 100%;display: flex;align-items: center;justify-content: center;">
+        <input type="text" placeholder="Search ...">
+        <img src="../../../../../assets/login-form/search-icon.png" alt=""
+            style="position: absolute;width: 20px;right: 5px;top: 2px;">
+    </div>
+    <div>
+        <button>
+            <img src="../../../../../assets/login-form/add-user.png" alt="Add new user">
+        </button>
+        <button>
+            <img src="../../../../../assets/login-form/pending-user.png" alt="Pending Requests" style="width: 110%;">
+            <span style="position: absolute;
+            top: -4px;
+            right: -4px;
+            padding: 2px;
+            color: white;
+            font-size: 0.6em;
+            background-color: red;">0</span>
+        </button>
+    </div>
+</div>
+<div class="conversations">
+    <div *ngFor="let item of [1,2,3,4,5]" class="conversation-container">
+        <div class="friendpdp">
+            <div class="pdp"></div>
+        </div>
+        <div class="friendname">
+            <div class="name">Ezio Bishop</div>
+            <div class="lastmessage">Test small message padding-left: 10px</div>
+        </div>
+    </div>
+</div>

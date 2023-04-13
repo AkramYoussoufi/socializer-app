@@ -1,29 +1,24 @@
-::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
-  }
-.firstbar{
+.firstbar {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60px;
-    border: solid  1px  #DDDDDD;
+    height: 8%;
+    border: solid 1px #dddddd;
     border-right: none;
-    .friendpdp{
+    .friendpdp {
         margin-left: 20px;
-        width: 80px;
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-    div{
-       width: 50px;
-       height: 50px;
-       border: solid 1px black;
-       border-radius: 50%;
-       }
+        div {
+            height: 40px;
+            width: 40px;
+            border: solid 1px black;
+            border-radius: 50%;
+        }
     }
-    .friendname{
+    .friendname {
         display: flex;
         align-items: center;
         width: 80%;
@@ -33,7 +28,7 @@
         font-size: 1.2em;
         pointer-events: none;
     }
-    .dropbox{
+    .dropbox {
         width: 10%;
         height: 100%;
         display: flex;
@@ -44,7 +39,7 @@
         .dropbtn {
             border: none;
             background-color: transparent;
-            img{
+            img {
                 width: 20px;
                 height: 20px;
             }
@@ -63,63 +58,63 @@
                 background-color: white;
                 display: block;
                 white-space: nowrap;
-                padding:10px;
-                border:solid 1px #DDDDDD;
-                cursor:pointer;
+                padding: 10px;
+                border: solid 1px #dddddd;
+                cursor: pointer;
                 font-weight: 600;
                 text-align: center;
-              }
-          }
+            }
+        }
     }
 }
-.chat{
-    height: 95%;
-    border: solid  1px  #DDDDDD;
-    .chatfield{
+.chat {
+    height: 94%;
+    border: solid 1px #dddddd;
+    .chatfield {
         padding: 50px;
         height: 90%;
-        overflow: scroll;
+        overflow-y: scroll;
     }
-    .messagesender{
-        height: 8%;
+    .messagesender {
         display: flex;
         align-items: center;
         justify-content: center;
-
-        div{
-            width: 90%;
-            height: 70%;
+        height: 8%;
+        border: solid 1px #dddddd;
+        div {
+            width: 80%;
+            height: 35px;
             border-radius: 60px;
             display: flex;
             flex-direction: row;
-            border: solid  1px  #02B37E;
-            input{
-                padding-left: 50px;
-                width: 85%;
-                height: 100%;
+
+            input {
+                padding-left: 20px;
+                width: 100%;
                 border-radius: 60px;
                 outline: none;
                 border: none;
-                font-size: 1.1em;
-
+                font-size: 0.9em;
+                background-color: #f3f3f5;
             }
-            .buttons{
+            .buttons {
                 width: 15%;
                 height: 100%;
-                background-color: #02B37E;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 gap: 5px;
-                button{
+                button {
                     display: block;
                     width: 50px;
                     height: 50px;
                     background-color: transparent;
                     padding: 5px;
                     border: none;
-                    img{
-                        height: 60%;
+                    cursor: default;
+                    img {
+                        height: 40%;
+                        cursor: pointer;
                     }
                 }
             }
