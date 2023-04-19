@@ -1,4 +1,4 @@
-<app-pendignrequest style="
+<app-pendignrequest (messageRequesting)="switchingFromChild($event)" *ngIf="isRequesting" style="
     position: absolute;
     display: flex;align-items: center;
     justify-content: center;
@@ -19,7 +19,7 @@
         <button>
             <img src="../../../../../assets/login-form/add-user.png" alt="Add new user">
         </button>
-        <button>
+        <button (click)="isRequestingSwitch()">
             <img src="../../../../../assets/login-form/pending-user.png" alt="Pending Requests" style="width: 110%;">
             <span style="position: absolute;
             top: -4px;

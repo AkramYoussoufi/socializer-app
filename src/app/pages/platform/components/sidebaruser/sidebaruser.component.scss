@@ -62,6 +62,10 @@
         height: 70px;
         display: flex;
         border: solid 1px #dddddd;
+        cursor: pointer;
+        &:hover{
+            background-color: #f1f1f1;
+        }
         .friendpdp {
             width: 30%;
             height: 100%;

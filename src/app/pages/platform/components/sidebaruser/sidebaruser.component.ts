@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class SidebaruserComponent {
 
+  isRequesting:boolean = false;
+
+  isRequestingSwitch(){
+    this.isRequesting = !this.isRequesting
+    console.log("asda")
+  }
+
+  switchingFromChild(requesting:boolean){
+    this.isRequesting = requesting;
+  }
 }

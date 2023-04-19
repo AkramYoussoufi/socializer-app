@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,EventEmitter,Output } from '@angular/core';
 
 @Component({
   selector: 'app-pendignrequest',
@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class PendignrequestComponent {
 
+  @Output() messageRequesting = new EventEmitter<boolean>();
+
+  isRequestingSwitch(){
+    this.messageRequesting.emit(false);
+  }
 }
